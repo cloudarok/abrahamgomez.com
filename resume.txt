@@ -1,4 +1,4 @@
-entrepreneurship = freedom
+<span id="b"><b>entrepreneurship</b></span> = freedom
 a lifelong experiment by abraham gomez
 
 i’m an entrepreneur, investor, and a lover of technology.
