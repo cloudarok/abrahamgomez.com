@@ -160,9 +160,7 @@
 	var snowflakes = [];
 	var NUM_SNOW = 220;
 	for (var i = 0; i < NUM_SNOW; i++) {
-		// bias x toward center: average 3 randoms for bell-curve, then map to center 60% of screen
-		var bell = (Math.random() + Math.random() + Math.random()) / 3;
-		var x = canvas.width * 0.2 + bell * canvas.width * 0.6;
+		var x = Math.random() * canvas.width;
 		snowflakes.push({
 			x: x,
 			y: -(Math.random() * 800),
@@ -186,8 +184,7 @@
 			// respawn at top when falling off bottom or drifting off sides
 			if (s.y > canvas.height + 10 || s.x > canvas.width + 10 || s.x < -10) {
 				s.y = -5;
-				var rx = (Math.random() + Math.random() + Math.random()) / 3;
-				s.x = canvas.width * 0.15 + rx * canvas.width * 0.7;
+				s.x = Math.random() * canvas.width;
 			}
 		}
 	}
