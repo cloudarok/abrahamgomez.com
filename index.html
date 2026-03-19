@@ -13,12 +13,16 @@
 	#console {
 		font-family: courier, monospace;
 		color: #fff;
-		width:750px;
+		max-width:750px;
+		width: 90%;
 		margin-left:auto;
 		margin-right:auto;
 		margin-top:100px;
+		padding-bottom: 80px;
 		font-size:14px;
 		display: none;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	#a {
@@ -125,6 +129,7 @@
 </style>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -380,7 +385,9 @@
 				var text=Typer.text.substring(0,Typer.index)
 				var rtn= new RegExp("\n", "g");
 
+				var scrollY = window.scrollY;
 				$("#console").html(text.replace(rtn,"<br/>"));
+				window.scrollTo(0, scrollY);
 			}
 			if ( key.preventDefault && key.keyCode != 122 ) {
 				key.preventDefault()
@@ -392,10 +399,12 @@
 
 		updLstChr:function(){
 			var cont=this.content();
+			var scrollY = window.scrollY;
 			if(cont.substring(cont.length-1,cont.length)=="|")
 				$("#console").html($("#console").html().substring(0,cont.length-1));
 			else
 				this.write("|");
+			window.scrollTo(0, scrollY);
 		}
 		};
 
